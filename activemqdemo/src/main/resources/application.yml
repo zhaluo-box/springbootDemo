@@ -1,0 +1,10 @@
+spring:
+  activemq:
+    broker-url: tcp://localhost:61616
+    close-timeout: 500s
+    in-memory: false
+    pool:
+      max-connections: 100
+      enabled: true
+    send-timeout: 50s
+
