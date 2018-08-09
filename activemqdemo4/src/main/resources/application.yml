@@ -2,20 +2,30 @@ spring:
 
   # Embedded ActiveMQ Configuration Example
   activemq:
+      # 集群配置
+      # spring.activemq.broker-url=failover:(tcp://172.18.1.188:61616,tcp://172.18.1.18:61616)
       broker-url: vm://embedded?broker.persistent=false,useShutdownHook=false
+      # 是否启用内存模式（也就是不安装MQ，项目启动时同时也启动一个MQ实例）
       in-memory: true
       non-blocking-redelivery: true
       packages:
+        #  是否信任所有的包
         trust-all: false
+        # 选择false 代表并不是信任所有的包.而是信任 下面的包
         trusted: com.example
       pool:
         block-if-full: true
         block-if-full-timeout: -1s
         create-connection-on-startup: true
+        # 是否替换默认的connectionFactory
         enabled: false
+        # 超时时间
         expiry-timeout: 0s
+        # 空闲时间
         idle-timeout: 30000s
+        # 最大连接数
         max-connections: 1
+
         maximum-active-session-per-connection: 500
         reconnect-on-exception: true
         time-between-expiration-check: -1s
@@ -28,12 +38,16 @@ spring:
       auto-startup: true
       concurrency: 5
       max-concurrency: 10
+    # 是否开启发布订阅
     pub-sub-domain: false
     template:
+      # 默认的目的地
       default-destination:
+
       delivery-mode: non_persistent
       priority: 100
       qos-enabled: true
+      #接受超时时间
       receive-timeout: 1000s
       time-to-live: 36000s
 

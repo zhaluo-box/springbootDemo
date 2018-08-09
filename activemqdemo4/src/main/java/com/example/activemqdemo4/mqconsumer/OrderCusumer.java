@@ -21,6 +21,14 @@ public class OrderCusumer {
 
 
     @JmsListener(destination = ORDER_QUEUE) //配置监听器--目的地地址
+
+    /* spring 整合activemq 配置监听器的方式
+        其中queueReceiver1 是被包扫描的类.
+     *<jms:listener-container destination-type="queue" container-type="default" connection-factory="connectionFactory" acknowledge="auto">
+        <jms:listener destination="test.queue" ref="queueReceiver1"/>
+        <jms:listener destination="test.queue" ref="queueReceiver2"/>
+    </jms:listener-container>
+     */
     public void receiveMessage(@Payload Order order,   //@Payload注释的方法参数，包括对验证的支持。
                                @Headers MessageHeaders headers, //@Header- 用于提取特定标头值的带注释的方法参数，包括由...定义的标准JMS标头
                                Message message, Session session) {
