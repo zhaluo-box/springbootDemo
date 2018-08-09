@@ -38,7 +38,7 @@ spring:
       auto-startup: true
       concurrency: 5
       max-concurrency: 10
-    # 是否开启发布订阅
+    # 是否开启发布订阅  疑问.默认是不开启的,那如何配置两种同时使用呢??????????????????????
     pub-sub-domain: false
     template:
       # 默认的目的地
