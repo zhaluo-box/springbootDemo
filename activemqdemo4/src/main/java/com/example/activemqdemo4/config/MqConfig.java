@@ -23,6 +23,7 @@ public class MqConfig {
 //    queue模式的ListenerContainer
     @Bean
     public JmsListenerContainerFactory<?> queueListenerFactory() {
+        //默认的监听器容器工厂
         DefaultJmsListenerContainerFactory factory = new DefaultJmsListenerContainerFactory();
         factory.setMessageConverter(messageConverter());  //设置消息转换器
         return factory;
