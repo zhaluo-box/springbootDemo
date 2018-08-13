@@ -5,3 +5,8 @@ spring:
   jms:
     pub-sub-domain: true
 
+# 队列和订阅目的地
+topicDestinationName1:
+topicDestinationName2:
+queueDestinationName1:
+queueDestinationName2:
