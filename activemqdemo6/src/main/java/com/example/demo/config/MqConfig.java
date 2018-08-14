@@ -13,39 +13,41 @@ import javax.jms.ConnectionFactory;
 import javax.jms.Queue;
 import javax.jms.Topic;
 
-
+/**
+ * Amq配置
+ */
 @EnableJms
 @Configuration
 public class MqConfig {
 
-    @Value("${application.topicDestinationName1}")
+    @Value("${topicDestinationName1}")
     public String TOPIC1;
 
-    @Value("${application.topicDestinationName2}")
+    @Value("${topicDestinationName2}")
     public String TOPIC2;
 
-    @Value("${application.queueDestinationName1}")
+    @Value("${queueDestinationName1}")
     public String QUEUE1;
 
-    @Value("${application.queueDestinationName2}")
+    @Value("${queueDestinationName2}")
     public String QUEUE2;
 
-    @Bean
+    @Bean(name = {"topic1"})
     public Topic topic1() {
         return new ActiveMQTopic(TOPIC1);
     }
 
-    @Bean
+    @Bean(name = {"topic2"})
     public Topic topic2() {
         return new ActiveMQTopic(TOPIC2);
     }
 
-    @Bean
+    @Bean(name = {"queue1"})
     public Queue queue1() {
         return new ActiveMQQueue(QUEUE1);
     }
 
-    @Bean
+    @Bean(name = {"queue2"})
     public Queue queue2() {
         return new ActiveMQQueue(QUEUE2);
     }
@@ -65,6 +67,5 @@ public class MqConfig {
         factory.setConnectionFactory(connectionFactory);
         return factory;
     }
-
 
 }

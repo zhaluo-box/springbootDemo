@@ -4,3 +4,13 @@ spring:
     in-memory: false
   jms:
     pub-sub-domain: true
+
+
+# 队列和订阅目的地
+topicDestinationName1: my-test-topic1
+
+topicDestinationName2: my-test-topic2
+
+queueDestinationName1: my-test-queue1
+
+queueDestinationName2: my-test-queue2
